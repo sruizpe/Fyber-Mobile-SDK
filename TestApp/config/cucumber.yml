@@ -1,0 +1,6 @@
+<% common = "SCREENSHOT_PATH=screenshots/" %>
+default: <%= common %>
+html: <%= common %> --format html --out report.html
+mbe: features/video_available.feature features/playing_video.feature features/misc.feature
+youtube: <%= common %> --tags ~@strict -p mbe
+groupm: <%= common %> --tags @groupm DATA=@groupm -p mbe
