@@ -473,6 +473,7 @@ shouldStartLoadWithRequest:(NSURLRequest *)request
 
     NSMutableDictionary *mutableParams = [@{ SKStoreProductParameterITunesItemIdentifier:appId } mutableCopy];
 
+#ifdef __IPHONE_8_0
     if (SPFoundationVersionNumber > NSFoundationVersionNumber_iOS_7_1) {
         if (!affiliateToken) {
             affiliateToken = @"";
@@ -489,6 +490,7 @@ shouldStartLoadWithRequest:(NSURLRequest *)request
 
         [mutableParams addEntriesFromDictionary:params];
     }
+#endif
 
     [productViewController loadProductWithParameters:[mutableParams copy] completionBlock:^(BOOL result, NSError *error) {
         if (!error) {

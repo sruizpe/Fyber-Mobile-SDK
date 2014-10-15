@@ -80,7 +80,7 @@ static NSString *const SPPersistedCloseOnFinishKey = @"SPPersistedCloseOnFinishK
         SPOfferWallViewController *offerWallVC = [SponsorPaySDK offerWallViewControllerForCredentials:self.lastCredentialsToken];
         offerWallVC.shouldFinishOnRedirect = self.closeOnFinishSwitch.on;
         [offerWallVC showOfferWallWithParentViewController:self completion:^(NSInteger status) {
-            NSLog(@"Did receive SPOfferWallViewController callback with status: %d", status);
+            NSLog(@"Did receive SPOfferWallViewController callback with status: %ld", (long)status);
         }];
     }
     @catch (NSException *exception)

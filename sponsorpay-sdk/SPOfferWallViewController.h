@@ -12,7 +12,7 @@
 
 #define SPONSORPAY_ERR_NETWORK  -1
 
-typedef void (^OfferWallCompletionBlock)(int status);
+typedef void (^OfferWallCompletionBlock)(NSInteger status);
 
 
 @class SPCredentials;

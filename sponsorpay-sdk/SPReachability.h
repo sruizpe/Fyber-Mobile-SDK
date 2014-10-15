@@ -74,9 +74,6 @@ typedef NS_ENUM(NSInteger, SPNetworkStatus20) {
     SCNetworkReachabilityRef reachabilityRef;
 }
 
-//isSystemProxyEnabled - use to check if system proxy is enabled in system preferences
-+ (BOOL)isSystemProxyEnabled;
-
 //reachabilityWithHostName- Use to check the reachability of a particular host name.
 + (SPReachability *)reachabilityWithHostName:(NSString *)hostName;
 

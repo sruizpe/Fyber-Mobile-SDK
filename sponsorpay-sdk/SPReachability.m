@@ -121,20 +121,6 @@ static void ReachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReach
     }
 }
 
-+ (BOOL)isSystemProxyEnabled
-{
-    //getting system proxy settings dictionary
-    CFDictionaryRef proxySettingsRef = CFNetworkCopySystemProxySettings();
-    NSDictionary *proxySettings = CFBridgingRelease(proxySettingsRef);
-
-    //checking if manual proxy is enabled
-    NSNumber *HTTPEnable = (NSNumber *)[proxySettings objectForKey:(NSString *)kCFNetworkProxiesHTTPEnable];
-    //checking if auto proxy is enabled
-    NSNumber *proxyAutoConfigEnable = (NSNumber *)[proxySettings objectForKey:(NSString *)kCFNetworkProxiesProxyAutoConfigEnable];
-
-    return ([HTTPEnable boolValue] || [proxyAutoConfigEnable boolValue]);
-}
-
 + (SPReachability *)reachabilityWithHostName:(NSString *)hostName;
 {
     SPReachability *retVal = NULL;

@@ -444,6 +444,7 @@ typedef NS_ENUM(NSInteger, SPBEClientOffersRequestStatus) {
 
     NSMutableDictionary *mutableParams = [@{ SKStoreProductParameterITunesItemIdentifier:appId } mutableCopy];
 
+#ifdef __IPHONE_8_0
     if (SPFoundationVersionNumber > NSFoundationVersionNumber_iOS_7_1) {
         if (!affiliateToken) {
             affiliateToken = @"";
@@ -460,6 +461,7 @@ typedef NS_ENUM(NSInteger, SPBEClientOffersRequestStatus) {
 
         [mutableParams addEntriesFromDictionary:params];
     }
+#endif
 
     [productViewController loadProductWithParameters:[mutableParams copy] completionBlock:^(BOOL result, NSError *error) {
         [self.loadingStoreKitView dismiss];
